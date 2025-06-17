@@ -11,6 +11,12 @@
           <img :src="member.img" :alt="member.name" class="team-member__image" />
           <h3 class="team-member__name">{{ member.name }}</h3>
           <div class="team-member__role">{{ member.role }}</div>
+          <div v-if="member.socials" class="team-member__socials">
+            <a v-for="social in member.socials" :key="social.url" :href="social.url" target="_blank" rel="noopener" class="team-member__social-link">
+              <img :src="social.icon" :alt="social.label" />
+              <span class="sr-only">{{ social.label }}</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -24,40 +30,34 @@ export default {
     return {
       members: [
         {
-          name: 'Nick Zviadadze',
-          role: 'Founder & Manager',
-          desc: 'Leads our vision and ensures creators get the best brand deals.',
-          img: require('@/assets/images/team/nick.avif')
-        },
-        {
           name: 'Sidonja Manushi',
           role: 'Head of Content',
           desc: 'Visionary founder, always on the lookout for new ways to help creators thrive online.',
           img: require('@/assets/images/team/sidonja_manushi.avif')
         },
         {
+          name: 'Nick Zviadadze',
+          role: 'Founder & Manager',
+          desc: 'Leads our vision and ensures creators get the best brand deals.',
+          img: require('@/assets/images/team/nick.avif'),
+          socials: [
+            {
+              label: 'Twitter',
+              url: 'https://x.com/Nick_zv_',
+              icon: require('@/assets/images/twitter.svg')
+            },
+            {
+              label: 'LinkedIn',
+              url: 'https://www.linkedin.com/in/nickzviadadze/',
+              icon: require('@/assets/images/linkedin.svg')
+            }
+          ]
+        },
+        {
           name: 'Mina Pavlović',
-          role: 'Content Writer',
+          role: 'Content Specialist',
           desc: 'Creates content that connects brands and audiences.',
           img: require('@/assets/images/team/mina.avif')
-        },
-        {
-          name: 'Patrick Laurenz L. Tano',
-          role: 'Link-Building Expert',
-          desc: 'Builds strong connections to boost your reach.',
-          img: require('@/assets/images/team/patrick.avif')
-        },
-        {
-          name: 'Demetra Georgieva',
-          role: 'Content Marketing Expert',
-          desc: 'Turns great content into real results for creators.',
-          img: require('@/assets/images/team/demetra.avif')
-        },
-        {
-          name: 'Levan Dolidze',
-          role: 'Link-Building Expert',
-          desc: 'Expands your audience with smart outreach.',
-          img: require('@/assets/images/team/levan.avif')
         }
       ]
     }
@@ -128,5 +128,37 @@ export default {
     min-height: 2.5em;
     line-height: 1.4;
   }
+  
+  &__socials {
+    margin-top: $spacing-xs;
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+  }
+  
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    img {
+      width: 28px;
+      height: 28px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    &:hover img {
+      opacity: 1;
+    }
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }
 </style> 

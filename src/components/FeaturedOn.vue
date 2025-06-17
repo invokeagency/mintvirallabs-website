@@ -30,6 +30,16 @@ export default {
   background-color: $light-background;
   padding: $spacing-lg 0;
   
+  &__heading {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $text-color;
+    margin-bottom: $spacing-lg;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  
   &__grid {
     display: flex;
     justify-content: center;
