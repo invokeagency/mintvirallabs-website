@@ -25,15 +25,23 @@
           <div class="platforms__grid">
             <div class="platform">
               <img src="@/assets/images/tiktok.svg" alt="TikTok" />
-              <span>✅</span>
+              <span class="platform__label">TikTok</span>
             </div>
             <div class="platform">
               <img src="@/assets/images/instagram.svg" alt="Instagram" />
-              <span>✅</span>
+              <span class="platform__label">Instagram</span>
             </div>
             <div class="platform">
               <img src="@/assets/images/youtube.svg" alt="YouTube" />
-              <span>✅</span>
+              <span class="platform__label">YouTube</span>
+            </div>
+            <div class="platform">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="7.5" y="10" width="25" height="20" rx="5" stroke="#1f2937" stroke-width="2"/>
+                <polygon points="22,20 17,23 17,17" fill="#1f2937"/>
+                <rect x="28" y="15" width="3" height="10" rx="1.5" fill="#FF0000"/>
+              </svg>
+              <span class="platform__label">Shorts</span>
             </div>
           </div>
         </div>
@@ -107,28 +115,37 @@ export default {
   p {
     margin-bottom: $spacing-md;
     font-weight: 500;
+    font-size: 1.2rem;
   }
   
   &__grid {
     display: flex;
     justify-content: center;
-    gap: $spacing-lg;
+    gap: $spacing-xl;
+    flex-wrap: wrap;
   }
 }
 
 .platform {
-  position: relative;
-  
-  img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+  img, svg {
     height: 40px;
     width: 40px;
+    margin-bottom: 0.2rem;
+    transition: transform 0.2s;
   }
-  
-  span {
-    position: absolute;
-    bottom: -10px;
-    right: -10px;
-    font-size: 1.25rem;
+  &:hover img, &:hover svg {
+    transform: scale(1.12);
+  }
+  &__label {
+    font-size: 0.95rem;
+    color: $text-color;
+    margin-top: 0.1rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
   }
 }
 </style> 

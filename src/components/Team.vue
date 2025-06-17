@@ -11,7 +11,6 @@
           <img :src="member.img" :alt="member.name" class="team-member__image" />
           <h3 class="team-member__name">{{ member.name }}</h3>
           <div class="team-member__role">{{ member.role }}</div>
-          <div class="team-member__desc">{{ member.desc }}</div>
         </div>
       </div>
     </div>

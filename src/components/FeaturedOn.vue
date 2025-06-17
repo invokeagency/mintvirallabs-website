@@ -12,7 +12,6 @@
            class="featured__item">
           <img src="@/assets/images/entreprenour_trans.png" alt="Entrepreneur" class="featured__logo" />
         </a>
-  
       </div>
     </div>
   </section>
@@ -40,7 +39,7 @@ export default {
   }
   
   &__item {
-    opacity: 0.6;
+    opacity: 0.7;
     transition: opacity 0.3s ease;
     
     &:hover {
@@ -48,8 +47,8 @@ export default {
     }
     
     .featured__logo {
-      height: 30px;
-      width: 120px;
+      height: 50px;
+      width: 200px;
       object-fit: contain;
       filter: grayscale(100%);
       transition: filter 0.3s ease;
